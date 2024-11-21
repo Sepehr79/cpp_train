@@ -8,6 +8,7 @@ void incrementBuiltInArray2(int* array);
 
 int main(int argc, char const *argv[])
 {
+    int second = 0;
     int array[] = {1, 2, 3};
     // We dont need to pass built in array by refrence or pointer.
     // Becuase the array implicity will pass by the first element address
@@ -24,6 +25,31 @@ int main(int argc, char const *argv[])
     {
         cout << i << endl;
     }
+
+    auto num = 3;
+    int* yptr{nullptr};
+    yptr = &num;
+
+    int arr[3]{1, 2, 3};
+    int arr[]{1, 2, 3, 4, 5};
+
+    for (int i = 0; argv[i]; i++)
+    {
+        cout << argv[i] << endl;
+    }
+
+    // Non constant pointer to constant data
+    const int* number{&num};
+    number = &second;
+
+    // Constant pointer to non constant data
+    int* const ptr{&num};
+    *ptr = 6;
+
+    // Constant pointer to constant data
+    const int* const constant{&num};
+
+    int intSize = sizeof(int);
 
     return 0;
 }
