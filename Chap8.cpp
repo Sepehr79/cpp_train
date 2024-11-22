@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -31,7 +32,6 @@ int main(int argc, char const *argv[])
     yptr = &num;
 
     int arr[3]{1, 2, 3};
-    int arr[]{1, 2, 3, 4, 5};
 
     for (int i = 0; argv[i]; i++)
     {
@@ -50,6 +50,34 @@ int main(int argc, char const *argv[])
     const int* const constant{&num};
 
     int intSize = sizeof(int);
+
+    cout << "Array:" << endl;
+    
+    int b[]{10, 20, 30, 40}; // create 4-element built-in array b
+    int* bPtr{b}; // set bPtr to point to built-in array b
+
+    cout << "b[1]=" << b[1] << " or " << *(b + 1) << endl; 
+    cout << "bPtr(1)=" << bPtr[1] << " or " << *(bPtr + 1) << endl; 
+
+    cout << "Chars:" << endl;
+    char c = 102;
+    cout << c << endl;
+
+    char* name{"Sepehr"};
+    cout << name[1] << endl;
+    char name2[]{"Sepehr"};
+    for (size_t i = 0; name2[i] != '\0'; i++)
+    {
+        cout << name2[i];
+    }
+    cout << endl;
+
+    char name3[40];
+    cin >> setw(20) >> name3;
+    cout << name3 << endl;
+    cin.getline(name3, 20);
+    cout << name3 << endl;
+    
 
     return 0;
 }

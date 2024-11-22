@@ -45,6 +45,7 @@ int main(int argc, char const *argv[])
     array<array<int, 2>, 3> multidimensional = {
         5, 6, 5, 8, 9, 10
     };
+     int num10 = multidimensional[0][0];
     auto name = "sepehr";
     for (auto const row: multidimensional)
     {
