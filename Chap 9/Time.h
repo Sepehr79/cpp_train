@@ -1,5 +1,5 @@
 #ifndef TIME_H
-#define TIME
+#define TIME_H
 
 #include <string>
 
