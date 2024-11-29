@@ -30,7 +30,7 @@ string Time::toUniversalString() const {
     return out.str();
 }
 
-string Time::toStandardString() const {
+string Time::toStandardString() {
     ostringstream output; // used to write output in memory
     output << setfill('0') << setw(2) <<
      ((hour == 0 || hour == 12) ? 12 : hour % 12) << ":"

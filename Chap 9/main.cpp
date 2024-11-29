@@ -38,6 +38,14 @@ int main(int argc, char const *argv[])
         Time time{65};
     } // Calls destructor of time
     
+    Time time10{11};
+    Time time11{12};
+    time10 = time11;
+    cout << time10.toStandardString() << endl; // endl
+
+    const Time time12{12};
+    // time12.toStandardString(); compile error function also must be declared as const
+    // time12.setTime(10, 10, 10); compile error
     
 
     return 0;
