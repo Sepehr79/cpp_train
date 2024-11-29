@@ -17,7 +17,7 @@ public:
     void setTime(int, int, int);
 
     std::string toUniversalString() const;
-    std::string toStandardString() const;
+    std::string toStandardString();
 };
 
 

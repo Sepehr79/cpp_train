@@ -4,13 +4,48 @@
 #include <stdexcept>
 #include <sstream>
 #include "Time.h"
+#include <sstream>
 
 using namespace std;
 
 static Time TIME{1, 1, 1}; // Destructor of static only call when main terminate
 
+struct Block 
+{
+    Block* prev = nullptr;
+    string data;
+    int nounce;
+
+    Block(string data, int nounce) {
+        this->data = data;
+        this->nounce = nounce;
+    }
+
+    string display() const {
+        stringstream str;
+        str << "Data: " << data << endl << "Nounce: " << nounce << endl;
+        Block* current = prev;
+        while (current != nullptr)
+        {
+            str << current->display();
+            current = current->prev;
+        }
+        
+        return str.str();
+    }
+
+};
+
+
+
+
 int main(int argc, char const *argv[])
 {
+    Block firstBlock{"First block", 0};
+    Block second{"Second block", 80};
+    second.prev = &firstBlock;
+    cout << second.display();
+    
     Time time{15, 12, 5};
     cout << time.toStandardString() << endl;
 
@@ -46,7 +81,7 @@ int main(int argc, char const *argv[])
     const Time time12{12};
     // time12.toStandardString(); compile error function also must be declared as const
     // time12.setTime(10, 10, 10); compile error
-    
+
 
     return 0;
 }
