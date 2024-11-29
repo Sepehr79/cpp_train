@@ -11,6 +11,7 @@ private:
     int second{0};
 public:
     Time(int, int, int);
+    explicit Time(int);
     ~Time();
 
     void setTime(int, int, int);

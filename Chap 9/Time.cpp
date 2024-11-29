@@ -3,12 +3,17 @@
 #include <stdexcept>
 #include <sstream>
 #include "Time.h"
+#include <iostream>
 
 using namespace std;
 
 Time::Time(int inputHour, int inputMinute, int inputSecond) 
 : hour{inputHour}, minute{inputMinute}, second{inputSecond} {
     
+}
+
+Time::Time(int number) : Time{number, 0, 0} {
+
 }
 
 void Time::setTime(int inputHour, int inputMinute, int inputSecond) {
@@ -35,5 +40,5 @@ string Time::toStandardString() const {
 }
 
 Time::~Time() {
-
+    std::cout << "Destructor of time is called with hour " << hour << endl;
 }
